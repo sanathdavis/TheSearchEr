@@ -94,8 +94,9 @@ var getURLFromText = function(text, number){
 advertisements();
 
 var search = function(query){
+  document.getElementById('outputFrm').innerHTML = "L o a d i n g ...";
   // the temprary FIX!
-  var sqry = encodeURIComponent("https://www.google.com/search?q=" + encodeURIComponent(query + "site:maango.me"));
+  var sqry = encodeURIComponent("https://www.google.com/search?q=" + encodeURIComponent(query));
   // => https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/encodeURIComponent
   FetchData("POST", "https://projects.shrimadhavuk.me/tracker/cors.php" + "?q=" + sqry, "", function(response) {
     var mainSearchResultId = "ires";
@@ -104,20 +105,24 @@ var search = function(query){
     var resultsAsText = xmlDoc.getElementById(mainSearchResultId).innerHTML;
     var r = resultsAsText.split('<div class="g">');
     var firstUrl = getURLFromText(r[1], 0).split('?q=')[1].split('&')[0];
-    console.log(firstUrl);
-    var TheURL = encodeURIComponent(firstUrl);
-    FetchData("GET", "https://projects.shrimadhavuk.me/tracker/cors.php" + "?q=" + TheURL, "", function(esnopser){
-      var SongResultPanelS = "songbox";
-      var parser = new DOMParser();
-      var xmlDoc = parser.parseFromString(esnopser,"text/html");
-      var TheRequiredThings = xmlDoc.getElementsByClassName(SongResultPanelS);
-      var rpsq = "";
-      for(var i = 0; i < TheRequiredThings.length; i++){
-        var currentElement = TheRequiredThings[i].innerHTML;
-        var url = getURLFromText(currentElement, 1);
-        rpsq += "<li><a href='" + url + "'>" + url + "</a></li>";
-      }
-      document.getElementById('outputFrm').innerHTML = rpsq;
-    });
+    if(firstUrl.indexOf("maango.me") !== -1){
+      var TheURL = encodeURIComponent(firstUrl);
+      FetchData("GET", "https://projects.shrimadhavuk.me/tracker/cors.php" + "?q=" + TheURL, "", function(esnopser){
+        var SongResultPanelS = "songbox";
+        var parser = new DOMParser();
+        var xmlDoc = parser.parseFromString(esnopser,"text/html");
+        var TheRequiredThings = xmlDoc.getElementsByClassName(SongResultPanelS);
+        var rpsq = "";
+        for(var i = 0; i < TheRequiredThings.length; i++){
+          var currentElement = TheRequiredThings[i].innerHTML;
+          var url = getURLFromText(currentElement, 1);
+          rpsq += "<li><a href='" + url + "'>" + url + "</a></li>";
+        }
+        document.getElementById('outputFrm').innerHTML = rpsq;
+      });
+    }
+    else{
+      document.getElementById('outputFrm').innerHTML = "404! under construction";
+    }
   });
 };
