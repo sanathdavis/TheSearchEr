@@ -91,6 +91,8 @@ var getURLFromText = function(text, number){
   return xmlDoc.getElementsByTagName('a')[number].getAttribute('href');
 };
 
+advertisements();
+
 var search = function(query){
   // the temprary FIX!
   var sqry = encodeURIComponent("https://www.google.com/search?q=" + encodeURIComponent(query + "site:maango.me"));
@@ -116,7 +118,6 @@ var search = function(query){
         rpsq += "<li><a href='" + url + "'>" + url + "</a></li>";
       }
       document.getElementById('outputFrm').innerHTML = rpsq;
-      advertisements();
     });
   });
 };
