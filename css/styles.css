@@ -1,0 +1,26 @@
+/* Why are there these two styles? */
+.fixedlocation a {
+  text-decoration: none;
+  padding-right: 1em;
+  color: #fff;
+}
+.fixedlocation {
+  z-index: 51200;
+  position: fixed;
+  background: none repeat scroll 0% 0% rgba(0, 0, 0, 0.8);
+  font-weight: 600;
+  color: #fff;
+  width: 100%;
+  bottom: 0em;
+  left: 0em;
+  padding: 1em;
+  text-align: center;
+  opacity: 0.8;
+  padding-top: 1em;
+}
+/* Why are there these two styles? */
+
+#outputFrm {
+  margin-top: 1em;
+  height: 30em;
+}
