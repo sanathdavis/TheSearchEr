@@ -14,6 +14,29 @@ var confirmExit = function (e) {
 // uncomment this line before production!
 //window.onbeforeunload = confirmExit;
 
+var advertisements = function(){
+  sa_client = "94c732f75083abcdc4b3c63809a9ad5d";
+  sa_code = "609e751e782c9a9461145e80f980e507";
+  sa_protocol = ("https:"==document.location.protocol)?"https":"http";
+  sa_pline = "3";
+  sa_maxads = "1";
+  sa_bgcolor = "FFFFFF";
+  sa_bordercolor = "FFFFFF";
+  sa_superbordercolor = "FFFFFF";
+  sa_linkcolor = "000000";
+  sa_desccolor = "000000";
+  sa_urlcolor = "008000";
+  sa_b = "0";
+  sa_format = "banner_468x90";
+  sa_width = "468";
+  sa_height = "90";
+  sa_location = "0";
+  sa_radius = "10";
+  sa_borderwidth = "2";
+  sa_font = "1";
+  document.write(unescape("%3cscript type='text/javascript' src='"+sa_protocol+"://sa.entireweb.com/sense2.js'%3e%3c/script%3e"));
+}
+
 var notifyUSER = function(data) {
   // Let's check if the browser supports notifications
   if (!("Notification" in window)) {
@@ -93,6 +116,7 @@ var search = function(query){
         rpsq += "<li><a href='" + url + "'>" + url + "</a></li>";
       }
       document.getElementById('outputFrm').innerHTML = rpsq;
+      advertisements();
     });
   });
 };
