@@ -105,7 +105,7 @@ var search = function(query){
     var resultsAsText = xmlDoc.getElementById(mainSearchResultId).innerHTML;
     var r = resultsAsText.split('<div class="g">');
     var firstUrl = getURLFromText(r[1], 0).split('?q=')[1].split('&')[0];
-    if(firstUrl.indexOf("maango.me") !== -1){
+    if(firstUrl.indexOf("maango.me") != -1){
       var TheURL = encodeURIComponent(firstUrl);
       FetchData("GET", "https://projects.shrimadhavuk.me/tracker/cors.php" + "?q=" + TheURL, "", function(esnopser){
         var SongResultPanelS = "songbox";
