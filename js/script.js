@@ -107,6 +107,7 @@ var getURLFromText = function(text, number){
     return the_array[number].getAttribute('href');
   }
   else{
+    // the stupid FIX!!
     return "SPONSORED: https://whatapp.me/?q=whatapp.me&utm_response=shrimadhav";
   }
 };
@@ -124,8 +125,8 @@ var search = function(query){
   FetchData("POST", CORS_URL + "?q=" + sqry, "", function(response) {
     var r = FormatGoogleIRes(response);
     var firstUrl = FormatURLs(getURLFromText(r[1], 0));
+    var TheURL = encodeURIComponent(firstUrl);
     if(firstUrl.indexOf("maango.me") != -1){
-      var TheURL = encodeURIComponent(firstUrl);
       FetchData("GET", CORS_URL + "?q=" + TheURL, "", function(esnopser){
         var SongResultPanelS = "songbox";
         var parser = new DOMParser();
