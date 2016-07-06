@@ -18,12 +18,12 @@ body {
 }
 
 .image-bg-fluid-height {
-	background: url('img/mj.jpg') no-repeat center center scroll;
+	background: url('https://wallpaperscraft.com/image/michael_jackson_suit_hat_dance_colors_3675_1920x1080.jpg') no-repeat center center scroll;
     padding: 100px 0;
 }
 
 .image-bg-fixed-height {
-	background: url('img/mj.jpg') no-repeat center center scroll;
+	background: url('https://wallpaperscraft.com/image/michael_jackson_suit_hat_dance_colors_3675_1920x1080.jpg') no-repeat center center scroll;
     height: 450px;
 }
 
