@@ -49,6 +49,13 @@ section {
     margin: 30px 0;
 }
 
+h3.text-center{
+    color:white;
+    font-size: 45pt;
+   font-family: Papyrus,fantasy;
+
+}
+
 footer {
     margin: 50px 0;
 }
